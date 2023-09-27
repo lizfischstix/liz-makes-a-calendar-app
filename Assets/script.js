@@ -21,3 +21,8 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+var currentDay = document.getElementById("currentDay") 
+// var a = dayjs.utc()
+// a.format() // 2019-03-06T00:00:00Z
+// a.local().format() //2019-03-06T08:00:00+08:00
