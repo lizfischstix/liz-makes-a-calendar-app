@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+$(function dynamicCal () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -22,7 +22,10 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
 });
 
-var currentDay = document.getElementById("currentDay") 
-// var a = dayjs.utc()
-// a.format() // 2019-03-06T00:00:00Z
-// a.local().format() //2019-03-06T08:00:00+08:00
+var dateEL = $("#currentDay").text(dayjs().format("MMMM DD, YYYY [at] hh:mm:ss a"));
+
+function renderTime() {
+  $("#currentDay").text(dayjs().format("MMMM DD, YYYY [at] hh:mm:ss a"));
+}
+renderTime();
+setInterval(renderTime, 1000);
