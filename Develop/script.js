@@ -24,9 +24,6 @@ function colorCode(){
   })
 }
 colorCode()
-// $("button").click(function(event){
-// event.preventDefault();
-// });
 
 var dateEL = $("#currentDay").text(dayjs().format("MMMM DD, YYYY [at] hh:mm a"));
 
@@ -35,3 +32,25 @@ function renderTime() {
 }
 renderTime();
 setInterval(renderTime, 1000);
+
+var dates = JSON.parse(localStorage.getItem("userInput"));
+var textInput = document.getElementById("userInput")
+document.getElementById("saveBtn").addEventListener("click", function(e){
+    e.preventDefault();
+    var userInput = {
+        user: document.getElementById("userInput").value
+    }
+    console.log(userInput);
+    
+    localStorage.setItem("userInput", JSON.stringify(dates))
+    renderScore();
+})
+
+function renderScore(){
+textInput.innerHTML = "";
+    for (var i = 0; i < userInput.length; i++) {
+        console.log(dates[i]);;
+    }
+}
+
+renderUserInput();
