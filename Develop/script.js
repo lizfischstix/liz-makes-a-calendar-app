@@ -33,24 +33,25 @@ function renderTime() {
 renderTime();
 setInterval(renderTime, 1000);
 
-var dates = JSON.parse(localStorage.getItem("userInput"));
+// var dates = JSON.parse(localStorage.getItem("userInput"));
 var textInput = document.getElementById("userInput")
-document.getElementById("saveBtn").addEventListener("click", function(e){
-    e.preventDefault();
-    var userInput = {
-        user: document.getElementById("userInput").value
-    }
-    console.log(userInput);
-    
-    localStorage.setItem("userInput", JSON.stringify(dates))
-    renderScore();
+//click event to save to localStorage
+$(".saveBtn").on("click", function(){
+    var description = $(this).siblings(".description").val();
+    console.log(description);
+    var time = $(this).parent().attr("id");
+    localStorage.setItem(time, description);
+    //ocalStorage.setItem("userInput", JSON.stringify(dates))
 })
 
-function renderScore(){
-textInput.innerHTML = "";
-    for (var i = 0; i < userInput.length; i++) {
-        console.log(dates[i]);;
-    }
-}
 
-renderUserInput();
+
+$('#9 .description').val(localStorage.getItem('9'))
+$('#10 .description').val(localStorage.getItem('10'))
+$('#11 .description').val(localStorage.getItem('11'))
+$('#12 .description').val(localStorage.getItem('12'))
+$('#13 .description').val(localStorage.getItem('13'))
+$('#14 .description').val(localStorage.getItem('14'))
+$('#15 .description').val(localStorage.getItem('15'))
+$('#16 .description').val(localStorage.getItem('16'))
+$('#17 .description').val(localStorage.getItem('17'))
